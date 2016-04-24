@@ -22,11 +22,14 @@
                             from.push(player.geo.countryCode + ' ' + player.geo.city);
                         }
                     });
-                    if (room.played && room.players && room.players.length == 2 && from.length > 0) {
+                    if (room.played && room.players && room.players.length == 2) {
                         playedGames++;
-                        var sessionTime = (room.players[0].disconnectedAt + room.players[1].disconnectedAt) / 2.0 - room.startedAt;
+                        var sessionTime = ((room.players[0].disconnectedAt + room.players[1].disconnectedAt) / 2.0 - room.startedAt)/1000;
+                        if (!room.players[0].disconnectedAt) {
+                            sessionTime = "not ended";
+                        }
                         sessions.push({
-                            sessionTime: sessionTime / 1000,
+                            sessionTime: sessionTime,
                             from: from.join(' vs ')
                         });
                     }
