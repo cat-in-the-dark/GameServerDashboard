@@ -14,11 +14,11 @@ open class RoomRepository
         val mapper: ObjectMapper
 ) {
     val LOG = LoggerFactory.getLogger(RoomRepository::class.java)
-    
+
     open fun findAll(): List<RoomModel> {
         val conn = sql2o.open()
         return try {
-            conn.createQuery("SELECT id, meta, created_at FROM game ORDER BY created_at")
+            conn.createQuery("SELECT id, meta, created_at FROM game ORDER BY created_at DESC")
                     .executeAndFetchTable()
                     .rows().map {
                         val json = it.getString("meta")
