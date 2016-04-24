@@ -12,7 +12,7 @@ data class RoomModelWrapper(
 data class RoomModel(
         val name: String = "",
         val played: Boolean = false,
-        val startedAt: Timestamp = Timestamp(Date().time),
+        val startedAt: Timestamp? = Timestamp(Date().time),
         val maxPlayers: Long = 0,
         val players: List<PlayerModel> = emptyList()
 )
@@ -21,9 +21,9 @@ data class PlayerModel(
         val ip: String = "127.0.0.1",
         val uuid: String = "",
         val status: String = "",
-        val connectedAt: Timestamp = Timestamp(Date().time),
-        val disconnectedAt: Timestamp = Timestamp(Date().time),
-        val geo: GeoModel = GeoModel()
+        val connectedAt: Timestamp? = Timestamp(Date().time),
+        val disconnectedAt: Timestamp? = Timestamp(Date().time),
+        val geo: GeoModel? = GeoModel()
 )
 
 data class GeoModel(
