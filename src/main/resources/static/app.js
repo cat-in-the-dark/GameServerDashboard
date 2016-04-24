@@ -19,10 +19,10 @@
                         if (player.geo) {
                             var l = L.marker([player.geo.lat, player.geo.lon], {title: player.status}).addTo(map);
                             polyline.addLatLng(l.getLatLng());
-                            from.push(player.geo.countryCode);
+                            from.push(player.geo.countryCode + ' ' + player.geo.city);
                         }
                     });
-                    if (room.played && room.players && room.players.length == 2) {
+                    if (room.played && room.players && room.players.length == 2 && from.length > 0) {
                         playedGames++;
                         var sessionTime = (room.players[0].disconnectedAt + room.players[1].disconnectedAt) / 2.0 - room.startedAt;
                         sessions.push({
