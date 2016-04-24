@@ -1,0 +1,15 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/gamesserver_dev
+    username: gamesserver
+    password: gamesserverpwd
+    test-on-borrow: true
+    remove-abandoned: true
+    validation-query: 'SELECT 1'
+  
+  jade4j:
+    caching: false
+    prettyPrint: true

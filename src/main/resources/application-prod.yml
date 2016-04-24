@@ -1,0 +1,15 @@
+server:
+  port: 9000
+
+spring:
+  datasource:
+    url: ${JDBC_DATABASE_URL}
+    username: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
+    test-on-borrow: true
+    remove-abandoned: true
+    validation-query: 'SELECT 1'
+  
+  jade4j:
+    caching: false
+    prettyPrint: true
