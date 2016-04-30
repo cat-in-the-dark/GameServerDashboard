@@ -1,5 +1,8 @@
 server:
   port: 9000
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
 
 spring:
   datasource:
@@ -9,7 +12,7 @@ spring:
     test-on-borrow: true
     remove-abandoned: true
     validation-query: 'SELECT 1'
-  
+
   jade4j:
     caching: false
     prettyPrint: true
